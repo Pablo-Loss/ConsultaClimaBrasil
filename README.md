@@ -24,7 +24,7 @@ Para fazer requisições através do Laravel utilizei o Cliente HTTP, que facili
 Utilizei um padrão de projeto estrutural chamado Adapter para poder adaptar para a aplicação os campos vindos da requisição da API de clima.
 
 #### - MySQL
-O banco de dados escolhido foi o MySQL pois é fácil de configurar, é compatível com o Laravel, tem alto desempenho em leitura e escrita e possui uma comunidade muito grande.
+O banco de dados escolhido foi o MySQL pois é fácil de configurar, é compatível com o Laravel, tem alto desempenho em leitura e escrita e possui uma comunidade grande.
 
 # APLICAÇÃO NA PRÁTICA
 
