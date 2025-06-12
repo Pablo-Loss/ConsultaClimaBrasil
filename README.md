@@ -28,4 +28,5 @@ O banco de dados escolhido foi o MySQL pois é fácil de configurar, é compatí
 
 # APLICAÇÃO NA PRÁTICA
 
-![Aplicação-Clima](https://github.com/user-attachments/assets/fc04515d-58ca-41ef-8248-d8ebb505d52e)
+![Aplicação-Clima](https://github.com/user-attachments/assets/c85a4c5b-91c7-423a-b78e-ba1d8e4c838d)
+
