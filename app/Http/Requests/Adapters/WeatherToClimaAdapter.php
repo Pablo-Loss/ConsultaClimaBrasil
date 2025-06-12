@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Adapters;
 
 use App\Http\Requests\DTOs\ClimateDTO;
+use Illuminate\Http\Client\Response;
 use Log;
 
 final class WeatherToClimaAdapter {
@@ -11,7 +12,8 @@ final class WeatherToClimaAdapter {
      * @param mixed $weather
      * @return ClimateDTO
      */
-    public static function Adapt($weather) {
+    public static function Adapt(Response $climaResponse) {
+        $weather = $climaResponse->object();
         $climate = new ClimateDTO;
         $climate->cidade = $weather->location->name;
         $climate->data_hora_pesquisa = $weather->location->localtime . ":00";

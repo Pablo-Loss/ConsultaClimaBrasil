@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\DTOs\ClimateDTO;
+use App\Http\Requests\Adapters\WeatherToClimaAdapter;
 use App\Models\Climate;
 use Illuminate\Http\Request;
 use Log;
@@ -14,19 +14,21 @@ class ClimateController extends Controller
     }
 
     public function visualize(Request $request) {
-        $climate = new ClimateDTO();
-        $climate->cidade = $request->input('cidade');
-        $climate->cobertura_nuvens = $request->input('cobertura_nuvens');
-        $climate->data_hora_pesquisa = $request->input('data_hora_pesquisa');
-        $climate->iconeTempo = $request->input('iconeTempo');
-        $climate->precipitacao = $request->input('precipitacao');
-        $climate->pressao = $request->input('pressao');
-        $climate->sensacao = $request->input('sensacao');
-        $climate->temperatura = $request->input('temperatura');
-        $climate->velocidade_vento = $request->input('velocidade_vento');
-        $climate->visibilidade = $request->input('visibilidade');
-        $climate->umidade = $request->input('umidade');
-        return view('climate.visualize', compact('climate'));
+        $cidade = $request->input('cidade');
+        $weatherController = new WeatherController();
+        $response = $weatherController->getCurrentWeather($cidade);
+
+        if ($response->successful()) {
+            $climateDTO = WeatherToClimaAdapter::Adapt($response);
+            $climate = new Climate();
+            $climate->fill((array) $climateDTO);
+            return view('climate.visualize')
+                ->with('climate', $climate);
+        } else {
+            return back()
+                ->withInput()
+                ->with('mensagemErro', "Erro ao consultar o clima de $cidade");
+        }
     }
 
     public function create(Request $request) {

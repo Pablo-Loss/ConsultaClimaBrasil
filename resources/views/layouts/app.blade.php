@@ -17,7 +17,7 @@
     <!-- Scripts -->
      @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-10 dark:bg-gray-900">
+<body>
     @include('layouts.navigation')
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         @yield('content')

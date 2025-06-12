@@ -7,3 +7,9 @@ button#consultar {
     font-size: 16px;
     padding: 5px;
 }
+
+input[readonly], input[readonly]:focus {
+    background-color: #e9ecef;
+    opacity: 1;
+    cursor: not-allowed;
+}

@@ -6,7 +6,7 @@
     
     <div class="py-6">
         <p class="h1" style="display: flex">
-        {{ $climate->cidade }} &nbsp; <img id="img-climas" src="{{ asset('images/climas.png') }}">
+        {{ $climate['cidade'] }} &nbsp; <img id="img-climas" src="{{ asset('images/climas.png') }}">
         </p>
     </div>
     <div class="py-6">
@@ -19,7 +19,7 @@
                             <div><strong>Temperatura</strong></div>
                             <div><img id="img-temperatura" src="{{ asset('images/temperatura.png') }}"></div>
                         </div>
-                        <p id="pTemperatura" class="card-text"><strong>{{ $climate->temperatura }}°C</strong></p>
+                        <p id="pTemperatura" class="card-text"><strong>{{ $climate['temperatura'] }}°C</strong></p>
                     </div>
                 </div>
                 </div>
@@ -30,7 +30,7 @@
                             <div><strong>Sensação&nbsp;</strong></div>
                             <div><img id="img-sensacao" src="{{ asset('images/sensacao.png') }}"></div>
                         </div>
-                        <p id="pSensacao" class="card-text"><strong>{{ $climate->sensacao }}°C</strong></p>
+                        <p id="pSensacao" class="card-text"><strong>{{ $climate['sensacao'] }}°C</strong></p>
                     </div>
                 </div>
                 </div>
@@ -41,7 +41,7 @@
                             <div><strong>Vel. Vento&nbsp;</strong></div>
                             <div><img id="img-vel-vento" src="{{ asset('images/vento.png') }}"></div>
                         </div>
-                        <p class="card-text"><strong>{{ $climate->velocidade_vento }} km/h</strong></p>
+                        <p class="card-text"><strong>{{ $climate['velocidade_vento'] }} km/h</strong></p>
                     </div>
                 </div>
                 </div>
@@ -58,10 +58,10 @@
                 <div class="progress">
                     <div class="progress-bar"
                         role="progressbar"
-                        style="width: {{ $climate->umidade }}%"
+                        style="width: {{ $climate['umidade'] }}%"
                         aria-valuenow="60"
                         aria-valuemin="0"
-                        aria-valuemax="100">{{ $climate->umidade }}%</div>
+                        aria-valuemax="100">{{ $climate['umidade'] }}%</div>
                 </div>
             </div>
         </div>
@@ -73,16 +73,16 @@
                 <div><strong>Informações Gerais</strong></div>
             </div>
             <div class="card-body">
-                <h5 class="card-title" id="title-infos-gerais"><strong>{{ $climate->cidade }} - {{ $climate->temperatura }}°C</strong></h5>
+                <h5 class="card-title" id="title-infos-gerais"><strong>{{ $climate['cidade'] }} - {{ $climate['temperatura'] }}°C</strong></h5>
                 <p class="card-text">
-                <strong>Sensação:</strong> {{ $climate->sensacao }}°C <br>
-                <strong>Velocidade do Vento:</strong> {{ $climate->velocidade_vento }} km/h <br>
-                <strong>Umidade:</strong> {{ $climate->umidade }}% <br>
-                <strong>Visibilidade:</strong> {{ $climate->visibilidade }} <br>
-                <strong>Cobertura das Nuvens:</strong> {{ $climate->cobertura_nuvens }} <br>
-                <strong>Precipitação:</strong> {{ $climate->precipitacao }} <br>
-                <strong>Pressão:</strong> {{ $climate->pressao }} <br>
-                <strong>Data/Hora:</strong> {{ \Carbon\Carbon::parse($climate->data_hora_pesquisa)->format('d/m/Y H:i') }}
+                <strong>Sensação:</strong> {{ $climate['sensacao'] }}°C <br>
+                <strong>Velocidade do Vento:</strong> {{ $climate['velocidade_vento'] }} km/h <br>
+                <strong>Umidade:</strong> {{ $climate['umidade'] }}% <br>
+                <strong>Visibilidade:</strong> {{ $climate['visibilidade'] }} <br>
+                <strong>Cobertura das Nuvens:</strong> {{ $climate['cobertura_nuvens'] }} <br>
+                <strong>Precipitação:</strong> {{ $climate['precipitacao'] }} <br>
+                <strong>Pressão:</strong> {{ $climate['pressao'] }} <br>
+                <strong>Data/Hora:</strong> {{ \Carbon\Carbon::parse($climate['data_hora_pesquisa'])->format('d/m/Y H:i') }}
                 </p>
             </div>
         </div>

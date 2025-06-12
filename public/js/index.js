@@ -41,31 +41,4 @@ $(document).ready(function() {
     $("#cep").keydown(function() {
         $("#consultar").hide();
     });
-
-    clearFields();
 });
-
-function getCurrentWeather() {
-    let cidade = $('#cidade').val();
-    $.ajax({
-        url: '/current-weather?cidade=' + cidade,
-        method: 'GET',
-        success: function(response) {
-            window.location.href = response.redirect;
-        },
-        error: function(xhr, status, error) {
-            mostrarErro('Ocorreu um erro ao consultar o clima da cidade ' + cidade);
-        }
-    });
-}
-
-function successCurrentWeather(climate) {
-    $.ajax({
-        url: '/visualize',
-        type: 'POST',
-        data: {
-            _token: $('meta[name="csrf-token"]').attr('content'),
-            climate: JSON.stringify(climate)
-        }
-    });
-}
