@@ -59,6 +59,7 @@ function saveClimate(climate, csrf) {
             climate: climate
         },
         success: function(response) {
+            $('#salvar').hide();
             mostrarSucesso(response.msgResult);
         },
         error: function(xhr, status, error) {

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Adapters\WeatherToClimaAdapter;
 use App\Models\Climate;
 use Illuminate\Http\Request;
-use Log;
 
 class ClimateController extends Controller
 {
